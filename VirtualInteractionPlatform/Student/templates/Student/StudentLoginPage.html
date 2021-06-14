@@ -14,7 +14,7 @@
     <br>
     <br>
   <div class="mb-8">
-    <label for="exampleInputEmail1" class="form-label">Email address</label>
+    <label for="exampleInputEmail1" class="form-label">User Id</label>
     <input type="text" name="username" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
 
   </div>
@@ -31,6 +31,9 @@
     <br>
   <button type="submit" class="btn btn-primary">Submit</button>
 </form>
+{%if passcheck %}
+    <h4 style="color:red">Wrong Password!! please try again</h4>
+    {%endif%}
 </center>
 </body>
 </html>

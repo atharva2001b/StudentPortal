@@ -19,9 +19,11 @@ def studentpage(request):
         if(i.username==name):
             if(i.password==password):
                 flag=True
+    flag1= not flag
+    params={'passcheck':flag1}
     if(flag==True):
         return HttpResponse("hii")
     else:
-        return HttpResponse("wrongpassword")
+        return render(request,'Student/StudentLoginPage.html',params)
 
 
