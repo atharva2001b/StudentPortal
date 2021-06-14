@@ -5,6 +5,35 @@
     <title>Title</title>
 </head>
 <body>
+<center>
+<h1>Teacher Login Page</h1>
 
+<form action="/teacher/teacherpage" method="get">
+
+    <br>
+    <br>
+    <br>
+  <div class="mb-8">
+    <label for="exampleInputEmail1" class="form-label">User Id</label>
+    <input type="text" name="username" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+
+  </div>
+    <br>
+    <br>
+  <div class="mb-8">
+    <label for="exampleInputPassword1" class="form-label">Password</label>
+    <input type="password" name="pass" class="form-control" id="exampleInputPassword1">
+  </div>
+    <br>
+    <br>
+
+    <br>
+    <br>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+{%if passcheck%}
+ <h4 style="color:red">Wrong Password!! please try again</h4>
+    {%endif%}
+</center>
 </body>
 </html>
