@@ -1,3 +1,5 @@
+from django.db.models.fields import NullBooleanField
+from django.http.response import HttpResponseRedirect
 from django.shortcuts import render
 from django.http import  HttpResponse
 from .models import Students
@@ -7,8 +9,8 @@ def index(request):
     return render(request,'Student/StudentLoginPage.html')
 
 def studentpage(request):
-    name=request.GET.get('username','default')
-    password=request.GET.get('pass','default')
+    name=request.POST['username']
+    password=request.POST['pass']
     print(name)
     print(password)
     a=Students.objects.all()
@@ -16,14 +18,17 @@ def studentpage(request):
     print((a[0].password))
     flag=False
     for i in a:
-        if(i.username==name):
-            if(i.password==password):
-                flag=True
+        if(i.username==name and i.password==password):
+            flag=True
     flag1= not flag
     params={'passcheck':flag1}
     if(flag==True):
-        return HttpResponse("hii")
+        return HttpResponseRedirect('studentPage')
     else:
-        return render(request,'Student/StudentLoginPage.html',params)
+        return render(request,'Student/StudentLoginPage',params)
+
+
+def studentHome(request):
+    return render(request, 'Student/studentPage.html')
 
 

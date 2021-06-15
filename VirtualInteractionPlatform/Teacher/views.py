@@ -3,12 +3,13 @@ from  django.http import HttpResponse
 from .models import Teacher
 # Create your views here.
 
+
 def index(request):
     return render(request, 'Teacher/index.html')
 
 def teacherpage(request):
-    name = request.GET.get('username', 'default')
-    password = request.GET.get('pass', 'default')
+    name = request.POST['username']
+    password = request.POST['pass']
     print(name)
     print(password)
     a = Teacher.objects.all()
