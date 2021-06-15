@@ -2,7 +2,7 @@
 from django.http.response import HttpResponseRedirect
 from django.shortcuts import render
 from django.http import  HttpResponse
-from .models import Students
+from .models import Students,Questionanswers
 # Create your views here.
 
 name = ""
@@ -47,4 +47,14 @@ def profilepage(request):
     return render(request,'Student/profilepage.html',params)
 
 def doubtspage(request):
-    return render(request,'Student/doubtspage.html')
+    question=request.GET.get('doubt','')
+    d = Students.objects.all()
+    rno=0
+    for i in d:
+        if (i.username == name):
+            studentprofile = i
+            rno=i.rollnumber
+    if not (question==""):
+        q=Questionanswers(Question=question,rollnumber=rno)
+        q.save()
+    return render(request,'Student/doubtspage.html',)
