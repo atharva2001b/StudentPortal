@@ -5,11 +5,12 @@ from django.http import  HttpResponse
 from .models import Students
 # Create your views here.
 
-
+name = ""
 def index(request):
     return render(request,'Student/StudentLoginPage.html')
 
 def studentLoginPage(request):
+    global name
     name=request.POST['username']
     password=request.POST['pass']
     a=Students.objects.all()
@@ -27,6 +28,23 @@ def studentLoginPage(request):
 
 
 def studentHome(request):
-    return render(request, 'Student/studentPage.html', None)
+    d=Students.objects.all()
+    studentprofile=[]
+    for i in d:
+        if(i.username==name):
+            studentprofile=i
+    params={'student':studentprofile}
+    return render(request, 'Student/studentPage.html', params)
 
+def profilepage(request):
+    d=Students.objects.all()
+    studentprofile = []
+    for i in d:
+        if (i.username == name):
+            studentprofile = i
+    print(studentprofile)
+    params = {'student': studentprofile}
+    return render(request,'Student/profilepage.html',params)
 
+def doubtspage(request):
+    return render(request,'Student/doubtspage.html')
