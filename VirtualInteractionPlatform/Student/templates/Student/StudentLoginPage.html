@@ -16,13 +16,7 @@
         overflow: hidden;
       }
 
-      .alert{
-        position: absolute;
-        margin-top: 16%;
-        margin-left: 25%;
-        width: 50%;
-        text-align: center;
-      }
+     
 
       .oval {
         position: absolute;
@@ -105,7 +99,7 @@
 <p class = "fs-1">Student Login Page</p>
 
 
-  <form class = "form" action="/student/studentpage" method="POST">
+  <form class = "form" action="/student/StudentLoginPage" method="POST">
     {%csrf_token%}
     <p class="fs-5">Enter Email</p>
     <input type="text" id="email" name="username" placeholder="Enter Username" > 
@@ -121,6 +115,17 @@
 <br>
 <br>
 {%if passcheck %}
+<style>
+  .alert{
+    position: absolute;
+    margin-top: 16%;
+    margin-left: 25%;
+    width: 50%;
+    text-align: center;
+    opacity: 1;
+  }
+
+</style>
 <div class="alert alert-danger" role="alert">
 Wrong Credencials!
 </div>
