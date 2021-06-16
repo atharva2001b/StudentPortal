@@ -1,21 +1,126 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-<center>
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-<form action="/student/studentPage/doubts" method="get">
-   <textarea placeholder="Enter your doubt here" name="doubt"  style="margin: 0px; width: 706px; height: 236px;"></textarea>
-    <br>
-    <br>
-     <input type="file" id="img" name="img" accept="image/*">
-    <br>
-    <br>
-    <button>Send</button>
-</form>
-</center>
-</body>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <style>
+
+        body {
+          overflow: hidden;
+        }
+  
+        textarea {
+            width: 500px;
+            height: 200px;
+            resize: none;
+        }
+  
+        .oval {
+          position: absolute;
+          margin-top: 10%;
+          margin-left: -5%;
+          height: 800px;
+          width: 800px;
+          background-color: rgba(93, 209, 255, 0.233);
+          border-radius: 50%;
+        }
+  
+        .oval2 {
+          position: absolute;
+          margin-top: -20%;
+          margin-left: 65%;
+          height: 900px;
+          width: 900px;
+          background-color: rgba(93, 209, 255, 0.233);
+          border-radius: 50%;
+        }
+  
+        .fs-1{
+          margin-left: 40%;
+          margin-top: 10%;
+          color: darkcyan;
+        }
+        .form{
+          position: absolute;
+          margin-left: 40%;
+          margin-top: 2%;
+          width: 20%;
+          
+        }
+  
+        input[type=text], select {
+          width: 100%;
+          padding: 12px 20px;
+          margin: 8px 0;
+          display: inline-block;
+          border: 1px solid #ccc;
+          border-radius: 4px;
+          box-sizing: border-box;
+        }
+  
+        input[type=submit] {
+          width: 100%;
+          background-color: #4CAF50;
+          color: white;
+          padding: 14px 20px;
+          margin: 8px 0;
+          border: none;
+          border-radius: 4px;
+          cursor: pointer;
+        }
+        
+        input[type=submit]:hover {
+          background-color: #45a049;
+        }
+
+        h1{
+            margin-top: 5%;
+            margin-left: 30%;
+        }
+        
+  
+      </style>
+
+    <title>Doubts!!</title>
+  </head>
+  <body>
+      
+      <div class="oval"></div>
+      
+      <div class="oval2"></div>
+      
+      <h1>Doubt Section</h1>
+
+
+    <form class = "form" action="/student/studentPage/doubtSubmitted" method="POST">
+        {%csrf_token%}
+        <h4>Enter your question here:</h4>
+        <input type="text" id="question" name="question" placeholder="Enter the question" > 
+        <br>
+        <br>
+        <h4>Enter password</h4>
+        <textarea type="text" id="questionDisc" name="disc" placeholder="Explain your question in detail"></textarea>
+        <br>
+        <br>
+        <h4>Upload Image</h4>
+        <input type="file" id="img" name="img" accept="image/*">
+        <br>
+        <br>
+        
+        <input type="submit" value="Submit">
+      </form>
+    
+    
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  </body>
 </html>

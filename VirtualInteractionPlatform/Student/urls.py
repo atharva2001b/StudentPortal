@@ -7,5 +7,8 @@ urlpatterns = [
     path('/StudentLoginPage',views.studentLoginPage,name="StudentPage"),
     path('/studentPage',views.studentHome,name="StudentHome"),
     path('/studentPage/profilepage',views.profilepage,name="profilepage"),
-    path('/studentPage/doubts',views.doubtspage,name="doubtpage")
+    path('/studentPage/doubtspage',views.doubtspage,name="doubtpage"),
+    path('/studentPage/doubtSubmitted',views.doubtSubmit,name="doubtSubmited"),
+    path('/studentPage/contactsPage',views.contacts,name="contacts")
+
 ]

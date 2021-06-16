@@ -1,21 +1,154 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-<center>
-<h1>This is the profile page</h1>
-<h2>Username:{{student.username}}</h2>
-<h2>Password: {{student.password}}</h2>
-<h2>Roll number: {{student.rollnumber}}</h2>
-<h2>Year: {{student.year}}</h2>
-<h2>Department: {{student.department}}</h2>
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-<form>
-    <button>Update Profile</button>
-</form>
-    </center>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <style>
+
+        @keyframes RL {
+            0%   { left:700px;}
+            100% { left:0px;}
+          }
+        
+          @keyframes LL {
+            0%  { left:-700px;}
+            100% { left:0px;}
+          }
+
+        body {
+            overflow: hidden;
+          }
+        
+        small {
+        display: block;
+        line-height: 1.428571429;
+        color: #999;
+        }
+
+        #title{
+            margin-left: 20%;
+            margin-top: 5%;
+        }
+
+        #info{
+            margin-left: 30%;
+            margin-top: 5%;
+        }
+
+        
+        .oval {
+            position: absolute;
+            margin-top: 6%;
+            margin-left: -6%;
+            height: 600px;
+            width: 600px;
+            background-color: rgba(93, 209, 255, 0.233);
+            border-radius: 50%;
+            animation-duration: 6s;
+            animation-name: LL;
+          }
+    
+          .oval2 {
+            position: absolute;
+            margin-top: 0%;
+            margin-left: 60%;
+            height: 1000px;
+            width: 1000px;
+            background-color: rgba(93, 209, 255, 0.233);
+            border-radius: 50%;
+            animation-duration: 6s;
+            animation-name: RL;
+          }
+
+          #goBack{
+              position: absolute;
+              margin-top: 5%;
+              margin-left: 65%;
+              cursor: pointer;
+          }
+
+          #goBack:hover + .line1{
+            width: 400px;
+          }
+
+          .line1{
+              position: absolute;
+              height: 2px;
+              width: 0px;
+              margin-top: 8%;
+              margin-left: 66%;
+              background-color:black;
+              transition: 2s;
+          }
+
+    </style> 
+
+
+    <title>Profile</title>
+  </head>
+  <body>
+
+      
+      <div class="oval"></div>
+      
+      <div class="oval2"></div>
+      
+      <h1 id="title">Student Profile</h1>
+      
+<div class="container" id = "info">
+    <div class="row">
+        <div class="col-xs-12 col-sm-6 col-md-6">
+            <div class="well well-sm">
+            <div class="row">
+                <div class="col-sm-6 col-md-4">
+                    <img src="./Profile_avatar_placeholder_large.png" alt="" class="img-rounded img-responsive">
+                </div>
+                <div class="col-sm-6 col-md-8">
+                    <h4>Name: {{student.username}}</h4>
+                    <h5><cite title="roll_no">roll no: {{student.rollnumber}}<i class="glyphicon glyphicon-map-marker">
+                    </i></cite></h5>
+                    <p>
+                        Email: email@example.com
+                        <br>
+                        Year: {{student.year}}</a>
+                        <br>
+                        birth date: June 02, 1988</p>
+                        <!-- Split button -->
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-primary">
+                            Update Profile</button>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div>
+    <h2 id="goBack">< go back to home</h2>
+    <div class = "line1"></div>
+</div>
+
+<script>
+    document.getElementById("goBack").onclick = function () {
+        location.href = "../studentPage";
+    };
+</script>
+
+
+
+
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 </body>
 </html>
