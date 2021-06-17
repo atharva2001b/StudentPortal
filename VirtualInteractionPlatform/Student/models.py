@@ -18,3 +18,4 @@ class Questionanswers(models.Model):
     Answers=models.CharField(max_length=300,default='')
     rollnumber=models.IntegerField(default=0)
     teacher_id=models.IntegerField(default=0)
+    desc=models.CharField(max_length=300,default='')

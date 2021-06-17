@@ -77,9 +77,10 @@ def doubtspage(request):
 
 def doubtSubmit(request):
     if(currStudentLogged):
-        question=request.GET.get('doubt','')
+        question=request.POST['question']
+        desc=request.POST['disc']
     if not (question==""):
-            q=Questionanswers(Question=question, rollnumber = currStudentLogged.rollnumber)
+            q=Questionanswers(Question=question, rollnumber = currStudentLogged.rollnumber,desc=desc)
             q.save()
 
     return render(request,'Student/doubtSubmitted.html', None)
