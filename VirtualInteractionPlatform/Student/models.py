@@ -13,9 +13,14 @@ class Students(models.Model):
         r=str(self.rollnumber)
         return  r
 
+
 class Questionanswers(models.Model):
+    qid=models.AutoField(primary_key=True)
     Question=models.CharField(max_length=300,default='')
     Answers=models.CharField(max_length=300,default='')
     rollnumber=models.IntegerField(default=0)
     teacher_id=models.IntegerField(default=0)
     desc=models.CharField(max_length=300,default='')
+
+
+

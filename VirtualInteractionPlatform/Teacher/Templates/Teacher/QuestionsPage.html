@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<center>
+<b>
+    {%for i in doubts%}
+    Roll number of the student is-:{{i.rollnumber}}
+    <br>
+    Question of the student is-:
+
+        {{i.Question}}
+
+    <br>
+    Description of the question is-:
+
+        {{i.desc}}
+
+    <br>
+    <form action='questionpage/AnsweringPage' method="get" >
+        <button name="questionentry" value="{{i.Question}}" >Answer the question</button>
+    </form>
+    <br>
+    <br>
+    <br>
+    {%endfor%}
+</b>
+</center>
+</body>
+</html>

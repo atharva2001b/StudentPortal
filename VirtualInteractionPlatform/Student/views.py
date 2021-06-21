@@ -77,8 +77,8 @@ def doubtspage(request):
 
 def doubtSubmit(request):
     if(currStudentLogged):
-        question=request.POST['question']
-        desc=request.POST['disc']
+        question=str(request.POST['question'])
+        desc=(request.POST['disc'])
     if not (question==""):
             q=Questionanswers(Question=question, rollnumber = currStudentLogged.rollnumber,desc=desc)
             q.save()
@@ -90,5 +90,14 @@ def contacts(request):
         return render(request,'Student/contactsPage.html', None)
     else:
         return render(request,'Student/StudentLoginPage.html')
+
+def show(request):
+    d=Questionanswers.objects.all()
+    finallst=[]
+    for i in d:
+        if not (i.Answers==''):
+            finallst.append(i)
+    params={'answers':finallst}
+    return render(request,'Student/ShowAnswerspage.html',params)
 
 

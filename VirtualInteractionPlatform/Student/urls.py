@@ -9,6 +9,8 @@ urlpatterns = [
     path('/studentPage/profilepage',views.profilepage,name="profilepage"),
     path('/studentPage/doubtspage',views.doubtspage,name="doubtpage"),
     path('/studentPage/doubtSubmitted',views.doubtSubmit,name="doubtSubmited"),
-    path('/studentPage/contactsPage',views.contacts,name="contacts")
+    path('/studentPage/contactsPage',views.contacts,name="contacts"),
+    path('/studentPage/showanswerspage',views.show,name="showans")
+
 
 ]
