@@ -11,6 +11,4 @@ urlpatterns = [
     path('/studentPage/doubtSubmitted',views.doubtSubmit,name="doubtSubmited"),
     path('/studentPage/contactsPage',views.contacts,name="contacts"),
     path('/studentPage/showanswerspage',views.show,name="showans")
-
-
 ]
