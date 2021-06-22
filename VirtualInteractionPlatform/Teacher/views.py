@@ -106,7 +106,7 @@ def answeredpage(request):
             if(i.Question==questioner):
                 s=i
         s.Answers=answer
-        #s.save()
+        s.save()
         return render(request, 'Teacher/AnswerSubmitted.html')
     else:
         return render(request,'Teacher/Loggedout.html')
