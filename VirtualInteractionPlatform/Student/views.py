@@ -42,7 +42,7 @@ def studentHome(request):
         params={'student':studentprofile}
         return render(request, 'Student/studentPage.html', params)
     else:
-        return render(request,'Student/StudentLoginPage.html')
+        return render(request,'Student/LoggedOut.html')
 
 def profilepage(request):
     if(currStudentLogged):
@@ -55,7 +55,7 @@ def profilepage(request):
         params = {'student': studentprofile}
         return render(request,'Student/profilepage.html', params)
     else:
-        return render(request,'Student/StudentLoginPage.html')
+        return render(request,'Student/LoggedOut.html')
 
 def doubtspage(request):
     if(currStudentLogged):
@@ -72,32 +72,44 @@ def doubtspage(request):
             q.save()
         return render(request,'Student/doubtspage.html', {'student': studentprofile})
     else:
-        return render(request,'Student/StudentLoginPage.html')
+        return render(request,'Student/LoggedOut.html')
 
 
 def doubtSubmit(request):
     if(currStudentLogged):
         question=str(request.POST['question'])
         desc=(request.POST['disc'])
-    if not (question==""):
-            q=Questionanswers(Question=question, rollnumber = currStudentLogged.rollnumber,desc=desc)
-            q.save()
-
-    return render(request,'Student/doubtSubmitted.html', None)
+        if not (question==""):
+                q=Questionanswers(Question=question, rollnumber = currStudentLogged.rollnumber,desc=desc)
+                q.save()
+                return render(request,'Student/doubtSubmitted.html', None)
+    return render(request,'Student/LoggedOut.html')
 
 def contacts(request):
     if(currStudentLogged):
         return render(request,'Student/contactsPage.html', None)
     else:
-        return render(request,'Student/StudentLoginPage.html')
+         return render(request,'Student/LoggedOut.html')
+
 
 def show(request):
-    d=Questionanswers.objects.all()
-    finallst=[]
-    for i in d:
-        if not (i.Answers==''):
-            finallst.append(i)
-    params={'answers':finallst}
-    return render(request,'Student/ShowAnswerspage.html',params)
+    if(currStudentLogged):
+            
+        d=Questionanswers.objects.all()
+        finallst=[]
+        for i in d:
+            if not (i.Answers==''):
+                finallst.append(i)
+        params={'answers':finallst}
+        return render(request,'Student/ShowAnswerspage.html',params)
+    else:
+        return render(request,'Student/LoggedOut.html')
+
+
+def logout(request):
+    global currStudentLogged
+    currStudentLogged = None
+    return render(request,'Student/LoggedOut.html')
+    
 
 

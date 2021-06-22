@@ -8,13 +8,9 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
-    <title>Logged Out!</title>
+    <title>Hello, world!</title>
 
     <style>
-
-      body{
-        overflow: hidden;
-      }
 
         @keyframes RL {
             0%   { left:700px;}
@@ -32,11 +28,12 @@
         }
 
         #goBack{
+            
             color: black;
             margin-top: 5%;
             margin-left: 40%;
             opacity: 0.8;
-    
+            
         }
     
         #goBack:hover{
@@ -82,6 +79,11 @@
             animation-name: RL;
           }
 
+          #wat{
+              text-decoration: none;
+              color: black;
+          }
+
     </style>
   </head>
   <body>
@@ -90,21 +92,16 @@
     <div class="oval2"></div>
 
 
-    <h1>You are now logged out!</h1>
+    <h1>Your answer was submitted Successsfully!</h1>
 
     <div>
-        <h2 id="goBack">< login again</h2>
+        <h2 id="goBack"><a href="{% url 'TeacherHomepage' %}" id="wat" >< go back to home</a></h2>
         <div class = "line1"></div>
     </div>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
 
-    <script>
-        document.getElementById("goBack").onclick = function () {
-            location.href = "{% url 'StudentLogin' %}";
-        };
-    </script>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>

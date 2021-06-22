@@ -58,7 +58,7 @@
 
     }
 
-    #profile:hover, #doubts:hover,#contacts:hover{
+    #profile:hover, #doubts:hover,#contacts:hover, #showAnswers:hover, #logout:hover{
       cursor: pointer;
     }
 
@@ -86,7 +86,7 @@
       transition: 1s;
     }
 
-    .line3{
+    .line4{
       pointer-events: none;
       color: black;
         margin-left: 74.5%;
@@ -98,9 +98,33 @@
       transition: 1s;
     }
 
+    .line3{
+      pointer-events: none;
+      color: black;
+        margin-left: 78.5%;
+        opacity: 0.6;
+      margin-top: -1%;
+      background-color: black;
+      width: 0px;
+      height: 3px;
+      transition: 1s;
+    }
 
-  #profile:hover + .line1, #doubts:hover + .line2, #contacts:hover + .line3{
-    width: 200px;
+    .line5{
+      pointer-events: none;
+      color: black;
+        margin-left: 82.5%;
+        opacity: 0.6;
+      margin-top: -1%;
+      background-color: black;
+      width: 0px;
+      height: 3px;
+      transition: 1s;
+    }
+
+
+  #profile:hover + .line1, #doubts:hover + .line2, #contacts:hover + .line3, #showAnswers:hover + .line4, #logout:hover + .line5{
+    width: 250px;
   }
 
   
@@ -120,13 +144,29 @@
         opacity: 0.8;
     }
 
+    #showAnswers{
+      text-decoration: none;
+      color: black;
+      margin-top: 2%;
+      margin-left: 74%;
+      opacity: 0.8;
+  }
+
     #contacts{
         text-decoration: none;
         color: black;
         margin-top: 2%;
-        margin-left: 74%;
+        margin-left: 78%;
         opacity: 0.8;
     }
+
+    #logout{
+      text-decoration: none;
+      color: black;
+      margin-top: 2%;
+      margin-left: 82%;
+      opacity: 0.8;
+  }
 
 
     .oval {
@@ -207,25 +247,37 @@
 
     <p class="fs-1" id = "doubts" >Doubts</p>
       <div class = "line2"></div>
+
+      <p class="fs-1" id = "showAnswers" >Answers</p>
+      <div class = "line4"></div>
+
     <p class="fs-2"  id = "contacts">Contacts</p>
       <div class = "line3"></div>
+
+      <p class="fs-3"  id = "logout">Logout</p>
+      <div class = "line5"></div>
 
   </div>
 <script>
 
       document.getElementById("profile").onclick = function () {
         location.href = "studentPage/profilepage";
-        console.log("iam clicked")
     };
     document.getElementById("doubts").onclick = function () {
       location.href = "studentPage/doubtspage";
-      console.log("iam clicked")
   };
   document.getElementById("contacts").onclick = function () {
     location.href = "studentPage/contactsPage";
-    console.log("iam clicked")
 };
-    
+
+document.getElementById("showAnswers").onclick = function () {
+  location.href = "studentPage/showanswerspage";
+};
+
+document.getElementById("logout").onclick = function () {
+  location.href = "studentPage/logout";
+};
+
     </script>
 
 
